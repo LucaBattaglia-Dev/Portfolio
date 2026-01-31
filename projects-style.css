@@ -1,0 +1,40 @@
+/* Projects Main Header */
+h1 {
+  color: var(--accent-gold);
+}
+
+/* Project Tabs (The long horizontal buttons) */
+.ProjectTab {
+  background-color: var(--card-bg) !important; /* Navy from palette */
+  color: white !important;
+  border-left: 10px solid var(--accent-pink); /* Decorative edge */
+}
+
+.ProjectTab h2 {
+  color: var(--accent-gold);
+}
+
+/* The banners that separate each game section */
+.ProjectBanner {
+  background-color: #685D79; /* The purple from your palette */
+  color: var(--accent-gold);
+  border-top: 2px solid var(--accent-mauve);
+}
+
+.ProjectBanner button {
+  background-color: var(--accent-gold) !important;
+  color: #2c3a4d !important; /* Dark text on gold button */
+  font-weight: 800;
+}
+
+/* Content Blocks */
+.InfoBlock {
+  background-color: var(--card-bg);
+  border: 1px solid var(--accent-mauve);
+}
+
+/* Placeholder Image Styling */
+.GameTitleImage {
+  background-color: #333; /* Dark filler for missing images */
+  border: 4px solid var(--accent-pink);
+}

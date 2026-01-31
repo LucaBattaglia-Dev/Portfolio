@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio | Gian-Luca Battaglia</title>
+    <link href="universalStyleSheet.css" rel="stylesheet">
+    <link href="index-style.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="nav-name">Gian-Luca Battaglia</a>
+            <a href="index.html" class="active">Portfolio</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div id="sideLayout">
+        <section id="aboutMe">
+            <div id="myPicture">
+                <img src="Pictures/Professional Photo.JPG" alt="Gian-Luca">
+            </div>
+            <div class="content-box">
+                <h1>ABOUT ME</h1>
+                <p id="aboutMeBlurb">I'm Gian-Luca, an aspiring game developer/designer with a strong interest in game mechanics and gameplay design. I focus on building immersive experiences in Unity using C#, focusing on skill set experience and proficiency.</p>
+            </div>
+        </section>
+
+        <section id="highlightedProjects">
+            <h1>HIGHLIGHTS</h1>
+            <div id="projectGrid">
+                <div class="ProjectCard" id="mainCard">
+                    <img src="Pictures/VulturContent/VULTUR_SXSWPromo_Square.png" alt="Vultur">
+                    <div class="card-text">
+                        <h2>VULTUR</h2>
+                        <p>A gruesome atmospheric Mech FPS with Action RPG build creation. Traverse through desolate ruins as a scavenger.</p>
+                    </div>
+                </div>
+
+                <div class="ProjectCard">
+                    <img src="Pictures/TerminalVelocityContent/tv_poster.jpg" alt="Terminal Velocity">
+                    <div class="card-text">
+                        <h2>Terminal Velocity</h2>
+                        <p>Interplanetary dodgeball, awarded "Best Party Game" for MQ 2024 Game Jam.</p>
+                    </div>
+                </div>
+
+                <div class="ProjectCard">
+                    <img src="Pictures/CrowdWorkingOnRoadNoPathfinding.PNG" alt="Crowd Simulation">
+                    <div class="card-text">
+                        <h2>Crowd Simulation</h2>
+                        <p>Research study into crowd simulations and perceived realism in virtual environments.</p>
+                    </div>
+                </div>
+                
+                <a href="projects.html" class="view-all-btn">View All Projects</a>
+            </div>
+        </section>
+
+        <section id="workExperience">
+            <h1>EXPERIENCE</h1>
+            <div id="experienceList">
+                <div class="experience-card">
+                    <h3>Bachelor of Game Design and Development</h3>
+                    <h4>Macquarie University - 2025</h4>
+                    <p>Practical skills in game design, 3D engines, agile production, and user experience.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Game Designer/Developer</h3>
+                    <h4>Liminal VR - Internship</h4>
+                    <p>Developed VR experiences for meditation and physical therapy, focusing on immersion and optimization.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Brand Ambassador</h3>
+                    <h4>Emissaries - Since 2021</h4>
+                    <p>Representing Nintendo, Intel, and Lego to communicate clearly and connect with various audiences.</p>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Team Member</h3>
+                    <h4>Kmart & Grill'd - 2021-2025</h4>
+                    <p>Developed strong teamwork, adaptability, and problem-solving skills in high-pressure environments.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <nav id="chapterList">
+    <div id="chapterPill"></div> <ul>
+        <li onclick="movePill(0)"><a href="#aboutMe">ABOUT ME</a></li>
+        <li onclick="movePill(1)"><a href="#highlightedProjects">HIGHLIGHTS</a></li>
+        <li onclick="movePill(2)"><a href="#workExperience">EXPERIENCE</a></li>
+    </ul>
+</nav>
+
+    <div id="sideLayout"></div>
+    <script>
+        function movePill(index) {
+            const pill = document.getElementById('chapterPill');
+            const listItems = document.querySelectorAll('#chapterList li');
+            
+            // Calculate position based on the specific LI index
+            // Subtracting a small amount (5px) to perfectly center the taller pill
+            const targetLi = listItems[index];
+            const topPosition = targetLi.offsetTop - 4.5; 
+            
+            pill.style.top = topPosition + 'px';
+            
+            // Handle the active class
+            listItems.forEach(li => li.classList.remove('chapterSelected'));
+            targetLi.classList.add('chapterSelected');
+        }
+
+        // Set initial position on load
+        window.onload = () => movePill(0);
+    </script>
+
+    <footer>
+        <p>© 2026 Gian-Luca Battaglia</p>
+    </footer>
+</body>
+</html>

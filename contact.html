@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Harley James Doolan</title>
+    <link rel="stylesheet" href="universalStyleSheet.css">
+    <link rel="stylesheet" href="contact-style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-name">Gian-Luca Battaglia</a>
+        <a href="index.html">Portfolio</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="contact-container">
+        <div id="title">
+            <span>CO</span>
+            <span>NT</span>
+            <span>ACT</span>
+            <a href="javascript:void(0)" onclick="toggleEmailForm()">ME</a>
+        </div>
+
+        <div id="socials">
+            <a href="https://github.com/LucaBattaglia-Dev" class="socialMedia">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                <h1>GitHub</h1>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/gian-luca-battaglia/" class="socialMedia">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                <h1>LinkedIn</h1>
+            </a>
+
+            <a href="javascript:void(0)" onclick="toggleEmailForm()" class="socialMedia">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png" alt="Email Me">
+                <h1>Gmail</h1>
+            </a>
+
+            <a href="#" class="socialMedia">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAwHdi4cXc9MOalzOv92xWt1IdfLGPCEPA0g&s" alt="Itch.io">
+                <h1>itch.io</h1>
+            </a>
+        </div>
+    </div>
+
+    <div id="email-form" style="display: none;">
+        <div id="form-content">
+            <h2 id="form-title">Send me a Message</h2>
+            <form id="contact-form" action="https://formspree.io/f/xrekvebl" method="POST">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <textarea name="message" placeholder="How can I help you?" required></textarea>
+                <button type="submit" class="send-btn">SEND MESSAGE</button>
+            </form>
+
+            <div id="success-message" style="display: none;">
+                <p>Thanks! Your message has been sent successfully. I'll get back to you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEmailForm() {
+            const form = document.getElementById('email-form');
+            if (form.style.display === 'none') {
+                form.style.display = 'flex'; 
+                setTimeout(() => {
+                    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            } else {
+                form.style.display = 'none';
+            }
+        }
+
+        const contactForm = document.getElementById("contact-form");
+        contactForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const data = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                contactForm.style.display = "none";
+                document.getElementById("form-title").style.display = "none";
+                document.getElementById("success-message").style.display = "block";
+            } else {
+                alert("Oops! There was a problem submitting your form");
+            }
+        };
+    </script>
+</body>
+</html>

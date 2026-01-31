@@ -1,0 +1,262 @@
+/* --- GLOBAL NAVIGATION (Top Bar) --- */
+
+nav {
+    padding: 1.5rem 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    background: rgba(18, 18, 18, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Make it stick and span full width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Ensures padding doesn't push it off screen */
+}
+
+/* --- INDEX PAGE LAYOUT --- */
+
+#sideLayout {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35vw; 
+    margin-right: 5vw;
+    padding: 15vh 0 10vh 0; /* Extra top padding so nav doesn't cover content */
+    gap: 20vh;
+}
+
+section {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+section h1 {
+    font-size: 3.5rem;
+    color: var(--highlight-gold);
+    margin-bottom: 2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/* --- LEFT-SIDE CHAPTER NAVIGATION --- */
+
+#chapterList {
+    position: fixed;
+    top: 35vh; /* Adjusted for better screen centering */
+    left: 0;
+    width: 30vw;
+    height: 350px; /* Fixed height for precise pill alignment */
+    z-index: 100;
+    background: transparent; /* Ensure no box background */
+}
+
+#chapterList ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+}
+
+#chapterList li {
+    position: relative;
+    z-index: 5;
+    padding-left: 2vw;
+    height: 0px; /* Uniform height for text items */
+    display: flex;
+    align-items: center;
+}
+
+#chapterList li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 4rem; /* Bigger letters as requested */
+    letter-spacing: 2px;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* The Moving Cylinder (Pill) */
+#chapterPill {
+    position: absolute;
+    left: -2vw; 
+    top: 0;    /* Controlled by JS: use 0px, 135px, 270px etc. */
+    width: 32vw;
+    height: 100px; /* Matches the 'li' height for perfect alignment */
+    background: var(--accent-pink); 
+    border-radius: 0 100px 100px 0;
+    z-index: 1;
+    transition: top 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 10px 5px 30px rgba(0,0,0,0.5);
+}
+
+/* Active State: Text turns yellow (gold) and gets thicker */
+#chapterList li.chapterSelected a {
+    font-weight: 900;
+    color: var(--highlight-gold); /* Yellow text instead of black */
+    transform: translateX(15px);
+}
+
+#chapterList li:hover a {
+    color: var(--highlight-gold);
+}
+
+/* --- ABOUT ME SECTION --- */
+
+#aboutMe {
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+}
+
+#myPicture {
+    flex: 0 0 320px;
+    height: 320px;
+    border: 5px solid var(--accent-mauve);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.3);
+}
+
+#myPicture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#aboutMeBlurb {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+/* --- HIGHLIGHTED PROJECTS GRID --- */
+
+#projectGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+}
+
+#mainCard {
+    grid-row: span 2;
+}
+
+.ProjectCard {
+    background: var(--bg-secondary);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 10px 10px 0px var(--accent-mauve);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProjectCard img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+#mainCard img {
+    height: 450px;
+}
+
+.card-text {
+    padding: 2rem;
+}
+
+.ProjectCard h2 {
+    color: var(--highlight-gold);
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+}
+
+.ProjectCard:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0px var(--accent-pink);
+}
+
+.view-all-btn {
+    grid-column: span 2;
+    text-align: center;
+    background: var(--accent-pink);
+    color: white;
+    text-decoration: none;
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.view-all-btn:hover {
+    background: var(--highlight-gold);
+    color: var(--bg-dark);
+}
+
+/* --- EXPERIENCE LIST --- */
+
+#experienceList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: var(--bg-secondary);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border-left: 8px solid var(--accent-mauve);
+    transition: border-color 0.3s;
+}
+
+.experience-card:hover {
+    border-left-color: var(--accent-pink);
+}
+
+.experience-card h3 { 
+    color: var(--highlight-gold); 
+    font-size: 1.5rem;
+}
+
+.experience-card h4 { 
+    color: var(--accent-pink); 
+    font-style: italic; 
+    margin-bottom: 1rem; 
+    font-weight: 400;
+}
+
+/* --- FOOTER --- */
+
+footer {
+    text-align: center;
+    padding: 5rem;
+    opacity: 0.4;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE FIX --- */
+
+@media (max-width: 1100px) {
+    #sideLayout { margin-left: 5vw; padding-top: 100px; }
+    #chapterList { display: none; }
+    #aboutMe { flex-direction: column; text-align: center; }
+    #projectGrid { grid-template-columns: 1fr; }
+    #mainCard { grid-row: auto; }
+}

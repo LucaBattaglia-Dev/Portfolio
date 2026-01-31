@@ -1,0 +1,101 @@
+/* Color Palette Variables */
+:root {
+  /* Strictly Dark & Light Greys */
+  --bg-dark: #313131;       
+  --bg-secondary: #1e1e1e;  
+  
+  /* Sunset Palette */
+  --accent-mauve: #A86C82;  
+  --accent-pink: #D8737F;   
+  --highlight-gold: #FCBB6D; 
+  --text-white: #f4f4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  /* Fixed Paper Texture */
+  background-image: url('https://ready.so/images/Sand-Texture.webp') rgba(18, 18, 18, 0.95);
+  background-repeat: repeat;
+  background-blend-mode: luminosity; /* Makes texture visible on dark grey */
+  color: var(--text-white);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Updated Navigation */
+nav {
+  padding: 1.5rem 4vw;
+  display: flex;
+  align-items: center;      /* Keeps name and links vertically centered */
+  justify-content: flex-start; 
+  gap: 50px;                /* Spacing between links */
+  background: rgba(18, 18, 18, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Your Name Style */
+.nav-name {
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-right: auto;       /* This pushes all following links to the right of the name */
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 700;         /* Bolder links */
+  font-size: 1.2rem;         /* Slightly bigger */
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav a:hover, nav a.active {
+  color: var(--highlight-gold);
+  transform: translateY(-2px);
+}
+
+/* Project & Info Cards */
+.card {
+  background: var(--bg-secondary);
+  padding: 25px;
+  border-radius: 12px;
+  border-bottom: 4px solid var(--accent-mauve);
+  transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-bottom-color: var(--accent-pink);
+}
+
+button {
+  background: var(--accent-pink);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--highlight-gold);
+  color: var(--bg-dark);
+}

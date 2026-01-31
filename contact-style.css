@@ -1,0 +1,215 @@
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10vh 20px;
+}
+
+/* Vertical Title & Animations */
+#title {
+    display: flex;
+    flex-direction: column;
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 0.85;
+    user-select: none;
+}
+
+#title span {
+    color: #1a1a1a; /* Dark text as seen in reference */
+    animation: wave 10s ease-in-out infinite;
+}
+
+#title a {
+    text-decoration: none;
+    color: var(--accent-pink); /* Using Sunset Red */
+    animation: linkWave 10s ease-in-out infinite;
+}
+
+#title a:hover {
+    color: var(--highlight-gold);
+}
+
+/* Social Grid Setup */
+#socials {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: repeat(2, 280px);
+    gap: 2rem;
+}
+
+.socialMedia {
+    background-color: white; /* Clean white boxes from reference */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #121212;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease-out;
+}
+
+.socialMedia:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.5);
+    border: 3px solid var(--accent-mauve);
+}
+
+.socialMedia img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.socialMedia h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Animations */
+@keyframes wave {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+}
+
+@keyframes linkWave {
+    0%, 100% { transform: translateX(0); font-weight: 900; }
+    50% { transform: translateX(30px); font-weight: 400; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    #socials {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+#email-form {
+    position: center;
+    margin-top: 10vh;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 10px 10px 0px var(--accent-mauve);
+}
+
+#email-form h2 {
+    color: var(--highlight-gold);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+input, textarea {
+    background: var(--bg-dark);
+    border: 2px solid var(--accent-mauve);
+    padding: 1rem;
+    color: white;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input { flex: 1; }
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-pink);
+}
+
+.send-btn {
+    background: var(--accent-pink);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    align-self: flex-start;
+}
+
+.send-btn:hover {
+    background: var(--highlight-gold);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(216, 115, 127, 0.4);
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+    .input-group { flex-direction: column; }
+}
+
+/* --- SUCCESS MESSAGE & CENTERED FORM --- */
+
+#email-form {
+    display: none; /* Controlled by JS */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10vh;
+    padding: 0 20px;
+}
+
+#form-content {
+    background: var(--bg-secondary);
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 10px 10px 0px var(--accent-mauve);
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#success-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+#success-message p {
+    color: var(--highlight-gold);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* Ensure centering on the page */
+#email-form {
+    margin-left: auto;
+    margin-right: auto;
+}
