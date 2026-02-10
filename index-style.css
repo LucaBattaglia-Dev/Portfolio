@@ -15,9 +15,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
 
 body {
     font-family: 'Inter', sans-serif;
@@ -25,6 +23,58 @@ body {
     color: white;
     overflow-x: hidden;
     padding-top: 80px; /* Space for fixed nav */
+}
+
+/* --- TOP NAVIGATION (UNIVERSAL & FIXED) --- */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5vw;
+    position: fixed;    /* Stays at top during scroll */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(18, 18, 18, 0.8); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-name {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-name:hover {
+    color: var(--highlight-gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--highlight-gold);
+    transform: translateY(-2px);
 }
 
 /* --- HERO SECTION --- */
@@ -110,12 +160,14 @@ body {
 #chapterList {
     position: sticky;
     top: 20vh;
-    height: 480px;
+    height: 410px;
     width: 25vw;
     background: var(--bg-sidebar); 
-    padding: 60px 0;
+    padding: 60px;
     border-radius: 0 40px 40px 0; 
     z-index: 50;
+    display: flex;
+    align-items: center;
 }
 
 #chapterList ul {
@@ -137,7 +189,7 @@ body {
 #chapterList li a {
     font-size: 2.2rem;
     font-weight: 800;
-    padding-left: 40px;
+    padding-left: 35px;
     color: rgba(255,255,255,0.2);
     text-decoration: none;
     transition: 0.3s;

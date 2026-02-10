@@ -38,7 +38,7 @@
             <ul>
                 <li onclick="movePill(0)"><a href="#aboutMe">ABOUT ME</a></li>
                 <li onclick="movePill(1)"><a href="#highlightedProjects">HIGHLIGHTS</a></li>
-                <li onclick="movePill(2)"><a href="#technicalSkills">SKILLS</a></li>
+                <li onclick="movePill(2)"><a href="#technicalSkills">TECHNICAL SKILLS</a></li>
             </ul>
         </nav>
 
@@ -134,25 +134,49 @@
     
     <script>
         function movePill(index) {
-            const pill = document.getElementById('chapterPill');
-            const listItems = document.querySelectorAll('#chapterList li');
-            const targetLi = listItems[index];
-            if(targetLi) {
-                pill.style.top = targetLi.offsetTop + "px";
-                listItems.forEach(li => li.classList.remove('chapterSelected'));
-                targetLi.classList.add('chapterSelected');
-            }
-        }
+    const pill = document.getElementById('chapterPill');
+    const listItems = document.querySelectorAll('#chapterList li');
+    const targetLi = listItems[index];
+    
+    if(targetLi) {
+        // Calculate position relative to the UL container
+        const parentTop = targetLi.parentElement.getBoundingClientRect().top;
+        const liTop = targetLi.getBoundingClientRect().top;
+        const relativeTop = liTop - parentTop;
 
-        window.addEventListener('scroll', () => {
+        pill.style.top = (relativeTop + 20) + "px";
+        
+        listItems.forEach(li => li.classList.remove('chapterSelected'));
+        targetLi.classList.add('chapterSelected');
+    }
+}
+
+// Optimization: Use Intersection Observer for scroll detection
+// This is much smoother and more performant than window.scrollY
+const observerOptions = {
+    root: null,
+    rootMargin: '10% 0px -60% 0px', // Detects when section is in upper-mid screen
+    threshold: 0
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
             const sections = ['aboutMe', 'highlightedProjects', 'technicalSkills'];
-            const scrollPos = window.scrollY + (window.innerHeight / 3);
-            sections.forEach((id, index) => {
-                const section = document.getElementById(id);
-                if (section && scrollPos >= section.offsetTop) movePill(index);
-            });
-        });
-        window.onload = () => movePill(0);
+            const index = sections.indexOf(id);
+            if (index !== -1) movePill(index);
+        }
+    });
+}, observerOptions);
+
+// Attach observer to sections
+document.querySelectorAll('section[id]').forEach((section) => {
+    observer.observe(section);
+});
+
+// Set initial state
+window.onload = () => movePill(0);
     </script>
 </body>
 </html>
