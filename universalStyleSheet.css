@@ -29,45 +29,92 @@ body {
   min-height: 100vh;
 }
 
-/* Updated Navigation */
-nav {
-  padding: 1.5rem 4vw;
-  display: flex;
-  align-items: center;      /* Keeps name and links vertically centered */
-  justify-content: flex-start; 
-  gap: 50px;                /* Spacing between links */
-  background: rgba(18, 18, 18, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* --- CONSOLIDATED UNIVERSAL TOP NAV --- */
+
+:root {
+  /* Color Palette */
+  --bg-dark: #313131;       
+  --bg-secondary: #1e1e1e;  
+  --accent-mauve: #A86C82;  
+  --accent-pink: #D8737F;   
+  --highlight-gold: #FCBB6D; 
+  --text-white: #f4f4f4;
 }
 
-/* Your Name Style */
+/* Base body adjustments for Fixed Nav */
+body {
+  padding-top: 80px; /* Prevents content from hiding behind the sticky nav */
+}
+
+/* The Top Navigation Bar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5vw;
+    
+    /* Sticky/Fixed Logic */
+    position: fixed;    
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;      
+    
+    /* Visuals from Universal Sheet */
+    background: rgba(18, 18, 18, 0.8); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Your Name (Left Side) */
 .nav-name {
-  font-weight: 900;
-  font-size: 1.6rem;
-  color: var(--text-white);
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  margin-right: auto;       /* This pushes all following links to the right of the name */
-  text-decoration: none;
+    font-weight: 900;
+    font-size: 1.9rem;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-nav a {
-  color: var(--text-white);
-  text-decoration: none;
-  font-weight: 700;         /* Bolder links */
-  font-size: 1.2rem;         /* Slightly bigger */
-  transition: 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.nav-name:hover {
+    color: var(--highlight-gold);
 }
 
-nav a:hover, nav a.active {
-  color: var(--highlight-gold);
-  transform: translateY(-2px);
+/* Links Container (Right Side) */
+.nav-links {
+    display: flex;
+    gap: 40px; /* Spacing between links */
+}
+
+/* Individual Link Styling */
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--highlight-gold);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 20px;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
 }
 
 /* Project & Info Cards */

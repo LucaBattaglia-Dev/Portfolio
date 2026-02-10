@@ -3,114 +3,156 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio | Gian-Luca Battaglia</title>
+    <title>Gian-Luca Battaglia | Portfolio</title>
     <link href="universalStyleSheet.css" rel="stylesheet">
     <link href="index-style.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="index.html" class="nav-name">Gian-Luca Battaglia</a>
-            <a href="index.html" class="active">Portfolio</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
+    <section id="hero">
+        <div id="canvas-container"></div>
+        
+        <nav class="top-nav">
+            <a href="index.html" class="nav-name">GIAN-LUCA BATTAGLIA</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Portfolio</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </nav>
-    </header>
 
-    <div id="sideLayout">
-        <section id="aboutMe">
-            <div id="myPicture">
-                <img src="Pictures/Professional Photo.JPG" alt="Gian-Luca">
+        <div class="hero-content">
+            <p class="greeting">HELLO, I'M</p>
+            <h1 class="hero-name">Gian-Luca Battaglia</h1>
+            <p class="tagline">Aspiring Game Developer | Unity & C# Enthusiast</p>
+            <div class="hero-cta">
+                <a href="PDFLink.JPG" target="_blank" class="resume-btn">Get My Resume</a>
             </div>
-            <div class="content-box">
-                <h1>ABOUT ME</h1>
-                <p id="aboutMeBlurb">I'm Gian-Luca, an aspiring game developer/designer with a strong interest in game mechanics and gameplay design. I focus on building immersive experiences in Unity using C#, focusing on skill set experience and proficiency.</p>
-            </div>
-        </section>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
 
-        <section id="highlightedProjects">
-            <h1>HIGHLIGHTS</h1>
-            <div id="projectGrid">
-                <div class="ProjectCard" id="mainCard">
-                    <img src="Pictures/VulturContent/VULTUR_SXSWPromo_Square.png" alt="Vultur">
-                    <div class="card-text">
-                        <h2>Place Hold</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
+    <div class="main-container">
+        <nav id="chapterList">
+            <div id="chapterPill"></div> 
+            <ul>
+                <li onclick="movePill(0)"><a href="#aboutMe">ABOUT ME</a></li>
+                <li onclick="movePill(1)"><a href="#highlightedProjects">HIGHLIGHTS</a></li>
+                <li onclick="movePill(2)"><a href="#technicalSkills">SKILLS</a></li>
+            </ul>
+        </nav>
+
+        <div id="sideLayout">
+            <section id="aboutMe">
+                <h1 class="section-title">ABOUT ME</h1>
+                <div class="about-grid">
+                    <div class="ProjectCard intro">
+                        <div class="card-text">
+                            <p>I'm Gian-Luca, an aspiring game developer/designer with a strong interest in game mechanics and gameplay design. I focus on building immersive experiences in Unity using C#.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ProjectCard education">
+                        <div class="card-text">
+                            <h3>Education</h3>
+                            <p><strong>Bachelor of Game Design</strong></p>
+                            <p>Macquarie University - 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="ProjectCard experience">
+                        <div class="card-text">
+                            <h3>Experience</h3>
+                            <p><strong>Liminal VR</strong> (Internship)</p>
+                            <p>Developed VR experiences for meditation and physical therapy.</p>
+                        </div>
+                    </div>
+
+                    <div class="ProjectCard education placeholder">
+                        <div class="card-text">
+                            <h3>Additional Study</h3>
+                            <p><strong>Placeholder Certification</strong></p>
+                            <p>Online Institution - 2024</p>
+                        </div>
+                    </div>
+
+                    <div class="ProjectCard experience placeholder">
+                        <div class="card-text">
+                            <h3>Past Work</h3>
+                            <p><strong>Placeholder Studio</strong></p>
+                            <p>Junior Technical Designer - 2023</p>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="ProjectCard">
-                    <img src="place hold" alt="place hold">
-                    <div class="card-text">
-                        <h2>place hold</h2>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
-                </div>
-
-                <div class="ProjectCard">
-                    <img src="Pictures/CrowdWorkingOnRoadNoPathfinding.PNG" alt="Crowd Simulation">
-                    <div class="card-text">
-                        <h2>palce hold</h2>
-                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
-                </div>
-                
-                <a href="projects.html" class="view-all-btn">View All Projects</a>
+            <section id="highlightedProjects">
+    <h1 class="section-title">HIGHLIGHTS</h1>
+    
+    <div class="highlights-grid">
+        <div class="ProjectCard main-feat">
+            <img src="pic.png" alt="Vultur">
+            <div class="card-text">
+                <h2>place holder</h2>
+                <p>description zone</p>
             </div>
-        </section>
+        </div>
 
-        <section id="workExperience">
-            <h1>EXPERIENCE</h1>
-            <div id="experienceList">
-                <div class="experience-card">
-                    <h3>Bachelor of Game Design and Development</h3>
-                    <h4>Macquarie University - 2025</h4>
-                    <p>Practical skills in game design, 3D engines, agile production, and user experience.</p>
+        <div class="stacked-feats">
+            <div class="ProjectCard sub-feat">
+                <img src="path/to/placehold.png" alt="place hold">
+                <div class="card-text">
+                    <h2>place hold</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
-
-                <div class="experience-card">
-                    <h3>Game Designer/Developer</h3>
-                    <h4>Liminal VR - Internship</h4>
-                    <p>Developed VR experiences for meditation and physical therapy, focusing on immersion and optimization.</p>
-                </div>
-
             </div>
-        </section>
+
+            <div class="ProjectCard sub-feat">
+                <img src="path/to/crowd.png" alt="Crowd Simulation">
+                <div class="card-text">
+                    <h2>palce hold</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <nav id="chapterList">
-    <div id="chapterPill"></div> <ul>
-        <li onclick="movePill(0)"><a href="#aboutMe">ABOUT ME</a></li>
-        <li onclick="movePill(1)"><a href="#highlightedProjects">HIGHLIGHTS</a></li>
-        <li onclick="movePill(2)"><a href="#workExperience">EXPERIENCE</a></li>
-    </ul>
-</nav>
+    <div class="view-more-container">
+        <a href="projects.html" class="projects-btn">View All Projects</a>
+    </div>
+</section>
 
-    <div id="sideLayout"></div>
+            <section id="technicalSkills">
+                <h1 class="section-title">TECHNICAL SKILLS</h1>
+                <div class="skills-placeholder"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="background.js"></script>
+    
     <script>
         function movePill(index) {
             const pill = document.getElementById('chapterPill');
             const listItems = document.querySelectorAll('#chapterList li');
-            
-            // Calculate position based on the specific LI index
-            // Subtracting a small amount (5px) to perfectly center the taller pill
             const targetLi = listItems[index];
-            const topPosition = targetLi.offsetTop - 4.5; 
-            
-            pill.style.top = topPosition + 'px';
-            
-            // Handle the active class
-            listItems.forEach(li => li.classList.remove('chapterSelected'));
-            targetLi.classList.add('chapterSelected');
+            if(targetLi) {
+                pill.style.top = targetLi.offsetTop + "px";
+                listItems.forEach(li => li.classList.remove('chapterSelected'));
+                targetLi.classList.add('chapterSelected');
+            }
         }
 
-        // Set initial position on load
+        window.addEventListener('scroll', () => {
+            const sections = ['aboutMe', 'highlightedProjects', 'technicalSkills'];
+            const scrollPos = window.scrollY + (window.innerHeight / 3);
+            sections.forEach((id, index) => {
+                const section = document.getElementById(id);
+                if (section && scrollPos >= section.offsetTop) movePill(index);
+            });
+        });
         window.onload = () => movePill(0);
     </script>
-
-    <footer>
-        <p>© 2026 Gian-Luca Battaglia</p>
-    </footer>
 </body>
 </html>
