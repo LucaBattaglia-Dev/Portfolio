@@ -1,95 +1,144 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio | Gian-Luca Battaglia</title>
-  <link href="universalStyleSheet.css" rel="stylesheet">
-  <link href="ProjectsPage/projectsStyle.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects | Gian-Luca Battaglia</title>
+    <link href="universalStyleSheet.css" rel="stylesheet">
+    <link href="projects-style.css" rel="stylesheet">
 </head>
-
 <body>
-  <header>
+
+    <nav class="top-nav">
+        <a href="index.html" class="nav-name">GIAN-LUCA BATTAGLIA</a>
+        <div class="nav-links">
+            <a href="index.html">Portfolio</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="projects-container">
+    <h1 class="section-title">Featured Projects</h1>
     
-  </header>
+    <div class="projects-grid">
+        <div class="project-card" onclick="openProject('project1')">
+            <div class="card-header"><span class="platform-tag">Unity | GitHub</span></div>
+            <div class="card-image"><img src="Images/IMG1.jpg"></div>
+            <div class="card-body">
+                <h3>Not Our Crime<span class="status-text">- In Progress</span></h3>
+                <p class="short-desc">A work-in-progress crime scene game...</p>
+            </div>
+            <div class="card-footer">
+                <span class="game-tag">3D</span>
+                <span class="game-tag">Crime</span>
+                <span class="game-tag">Multiplayer</span>
+                <span class="game-tag">Puzzle</span>
+                <span class="game-tag">Low poly</span>
+            </div>
+        </div>
 
-  <nav class="top-nav">
-    <a href="index.html" class="nav-name">GIAN-LUCA BATTAGLIA</a>
-      <div class="nav-links">
-        <a href="index.html">Portfolio</a>
-        <a href="projects.html"class="active">Projects</a>
-        <a href="contact.html">Contact</a>
-      </div>
-  </nav>
+        <div class="project-card" onclick="openProject('project2')">
+            <div class="card-header"><span class="platform-tag">Unity | GitHub</span></div>
+            <div class="card-image"><img src="Images/IMG2.jpg"></div>
+            <div class="card-body">
+                <h3>Project <span class="status-text">- Completed</span></h3>
+                <p class="short-desc">A 2.5D physics platformer.</p>
+            </div>
+            <div class="card-footer">
+                <span class="game-tag">Adventure</span>
+                <span class="game-tag">Platformer</span>
+            </div>
+        </div>
 
-  <h1>PROJECTS</h1>
-  <div id="ProjectList">
-    <a href="#Placehold" class="ProjectTab">
-      <picture>
-        <img src="pichold.png" style="object-position: 50% 10%; scale: 100%;">
-      </picture>
-      <h2>Place Holder</h2>
-    </a>
-    <a href="#linkhold" class="ProjectTab">
-      <picture>
-        <img src="pichold.png" style="object-position: 50% 30%;">
-      </picture>
-      <h2>Place HOlder</h2>
-    </a>
-  </div>
-  
-  <div class="ProjectBanner" id="placeholder">
-      <h2>Name Here</h2>
-      <nav>
-        <a href="link">
-          <button>Play Button</button>
-        </a>
-        <a href="vid link">
-          <button>Watch button</button>
-        </a>
-      </nav>  
-  </div>
- 	<section >
- 		<div class="GameTitleImage">
- 			<img src="" style="position: relative; top: 0%;">
- 		</div>
-
-		<h3>About</h3>
-		<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-    <!-- <a href="#LeadLevelDesigner">lead level designer</a> and <a href="#VULTURLeadWeaponDesigner">lead weapon designer.</a></p> -->
-
-    <h3>Early Development</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-    <div class="imageArray"> 
-      <img src="palce hold.gif">
-      <img src="placehold.gif?v=1">
+        <div class="project-card" onclick="openProject('project3')">
+            <div class="card-header"><span class="platform-tag">Unity | GitHub</span></div>
+            <div class="card-image"><img src="Images/IMG3.jpg"></div>
+            <div class="card-body">
+                <h3>Game Name <span class="status-text">- Completed</span></h3>
+                <p class="short-desc">A 2.5D physics platformer.</p>
+            </div>
+            <div class="card-footer">
+                <span class="game-tag">Adventure</span>
+                <span class="game-tag">Platformer</span>
+            </div>
+        </div>
+        
+    </div> <div id="project1" class="project-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProject('project1')">&times;</span>
+            <div class="modal-grid">
+                <img src="Images/IMG1.jpg" alt="Large Preview">
+                <div class="modal-text">
+                    <h2>Alone at the Fast Food</h2>
+                    <h4>Development Highlights</h4>
+                    <p>Focuses on atmosphere and state-machine based AI.</p>
+                    <div class="modal-btns">
+                        <a href="#" class="projects-btn">Play Game</a>
+                        <a href="#" class="projects-btn">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-		<h3 id="LeadLevelDesigner">Level Design</h3>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
-
-    <div class="imageArray">
-      <img src="Pictures1.jpg">
-      <img src="Pictures1.jpg">
-      <img src="Pictures1.jpg">
-      <img src="Pictures1.jpg">
-      <img src="Pictures1.jpg">
-      <img src="Pictures1.jpg">
+    <div id="project2" class="project-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProject('project2')">&times;</span>
+            <div class="modal-grid">
+                <img src="Images/IMG2.jpg" alt="Large Preview">
+                <div class="modal-text">
+                    <h2>Oliver the Octopus</h2>
+                    <h4>Development Highlights</h4>
+                    <p>C# physics implementation and level design.</p>
+                    <div class="modal-btns">
+                        <a href="#" class="projects-btn">Play Game</a>
+                        <a href="#" class="projects-btn">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-		
-    <div class="imageArray">
-      <img src="Pictures2.jpg">
-      <img src="Pictures2.jpg">
-      <img src="Pictures2.jpg">
-      <img src="Pictures2.jpg">
+    <div id="project3" class="project-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProject('project3')">&times;</span>
+            <div class="modal-grid">
+                <img src="Images/IMG3.jpg" alt="Large Preview">
+                <div class="modal-text">
+                    <h2>Oliver the Octopus</h2>
+                    <h4>Development Highlights</h4>
+                    <p>C# physics implementation and level design.</p>
+                    <div class="modal-btns">
+                        <a href="#" class="projects-btn">Play Game</a>
+                        <a href="#" class="projects-btn">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
- 	</section>
+    <script>
+        function openProject(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevents background scroll
+        }
 
-  <section>
+        function closeProject(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restores scroll
+        }
 
- </body>
+        // Close modal if user clicks outside of the content box
+        window.onclick = function(event) {
+            if (event.target.classList.contains('project-modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
