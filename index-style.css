@@ -15,7 +15,123 @@
     box-sizing: border-box;
 }
 
+/* Vertical Scroll Container */
+.education-vertical-scroll {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 280px; /* Adjust this to match your "About Me" card height */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-pink) transparent;
+}
 
+.scroll-item-v {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 180px;
+}
+
+/* Titles and Typography Fixes */
+.category-heading {
+    color: var(--highlight-gold);
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.role-title {
+    color: var(--highlight-gold); /* Forces the bold white heading */
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.full-width-heading {
+    grid-column: 1 / -1;
+}
+
+/* Layout for Logo + Text */
+/* Container for the logo column */
+/* Container for the logo column */
+.card-logo {
+    flex: 0 0 120px;         /* Keep this fixed so text doesn't move */
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    position: relative;      /* Needed for controlled overflow */
+    z-index: 2;
+}
+
+/* The actual logo image - 25% Larger */
+.card-logo img {
+    /* To make it 25% bigger than the previous 100px max, 
+       we set the width to 125px.
+    */
+    width: 200%;            
+    height: auto;
+    object-fit: contain;
+    
+    /* This ensures that even though the image is 125px, 
+       it centers perfectly within the 120px container 
+       without pushing the text column.
+    */
+    max-width: none;         
+    position: absolute;      
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+.resume-button-link {
+    text-decoration: none; /* Removes any automatic underlines */
+    display: inline-block; /* Keeps the button positioning correct */
+}
+
+/* Ensure the layout container centers everything vertically */
+.card-content-layout {
+    display: flex;
+    align-items: center;     
+    gap: 30px;               
+    padding: 25px;
+    overflow: visible;       /* Important: allows the larger logo to hang out slightly */
+}
+
+.card-text {
+    flex: 1;
+    z-index: 1;              /* Keeps text behind the logo if they ever touch */
+}
+
+
+/* Responsive fix: Stack them on very small screens */
+@media (max-width: 480px) {
+    .card-content-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .card-logo {
+        flex: 0 0 auto;
+        width: 60px;
+    }
+}
+
+/* Scrollbar Styling */
+.education-vertical-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.education-vertical-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent-pink);
+    border-radius: 10px;
+}
+.education-vertical-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
 
 body {
     font-family: 'Inter', sans-serif;
