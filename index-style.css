@@ -391,3 +391,142 @@ body {
     .hero-name { font-size: 3.5rem !important; }
     .highlights-grid { grid-template-columns: 1fr; }
 }
+
+/* --- TECHNICAL SKILLS WRAPPER --- */
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 1100px;
+}
+
+/* Section Box Outlines */
+.skills-category-box {
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.category-heading {
+    color: var(--highlight-gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout */
+/* --- BASE CARD STYLING --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    gap: 16px;
+}
+
+.skill-item {
+    background: #232323;
+    border-radius: 12px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 2.6rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+}
+
+.skill-icon-svg {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+
+.skill-item span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-white);
+    text-align: center;
+}
+
+/* Custom Icon Color Fallbacks */
+.skill-item i.aseprite-color { color: #A575DC !important; }
+.skill-item i.shader-color   { color: #00D2FF !important; }
+.skill-item i.vfx-color      { color: #FF007F !important; }
+.skill-item i.postproc-color { color: #00FFAA !important; }
+
+/* =========================================================
+   INDIVIDUAL BRAND MATCHING HOVER HIGHLIGHTS & GLOWS
+   ========================================================= */
+
+.skill-item.brand-csharp:hover   { border-color: #9B4F96; box-shadow: 0 6px 18px rgba(155, 79, 150, 0.4); }
+.skill-item.brand-cpp:hover      { border-color: #00599C; box-shadow: 0 6px 18px rgba(0, 89, 156, 0.4); }
+.skill-item.brand-dotnet:hover   { border-color: #512BD4; box-shadow: 0 6px 18px rgba(81, 43, 212, 0.4); }
+.skill-item.brand-java:hover     { border-color: #EA2D2E; box-shadow: 0 6px 18px rgba(234, 45, 46, 0.4); }
+.skill-item.brand-js:hover       { border-color: #F7DF1E; box-shadow: 0 6px 18px rgba(247, 223, 30, 0.4); }
+.skill-item.brand-python:hover   { border-color: #3776AB; box-shadow: 0 6px 18px rgba(55, 118, 171, 0.4); }
+.skill-item.brand-react:hover    { border-color: #61DAFB; box-shadow: 0 6px 18px rgba(97, 218, 251, 0.4); }
+.skill-item.brand-node:hover     { border-color: #339933; box-shadow: 0 6px 18px rgba(51, 153, 51, 0.4); }
+.skill-item.brand-html:hover     { border-color: #E34F26; box-shadow: 0 6px 18px rgba(227, 79, 38, 0.4); }
+.skill-item.brand-css:hover      { border-color: #1572B6; box-shadow: 0 6px 18px rgba(21, 114, 182, 0.4); }
+.skill-item.brand-jquery:hover   { border-color: #0769AD; box-shadow: 0 6px 18px rgba(7, 105, 173, 0.4); }
+.skill-item.brand-git:hover      { border-color: #F05032; box-shadow: 0 6px 18px rgba(240, 80, 50, 0.4); }
+.skill-item.brand-sql:hover      { border-color: #4479A1; box-shadow: 0 6px 18px rgba(68, 121, 161, 0.4); }
+.skill-item.brand-objc:hover     { border-color: #0B5A9D; box-shadow: 0 6px 18px rgba(11, 90, 157, 0.4); }
+
+.skill-item.brand-unity:hover    { border-color: #FFFFFF; box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3); }
+.skill-item.brand-unreal:hover   { border-color: #313131; box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25); }
+.skill-item.brand-godot:hover    { border-color: #478CBF; box-shadow: 0 6px 18px rgba(71, 140, 191, 0.4); }
+.skill-item.brand-blender:hover  { border-color: #E87D0D; box-shadow: 0 6px 18px rgba(232, 125, 13, 0.4); }
+.skill-item.brand-vscode:hover   { border-color: #007ACC; box-shadow: 0 6px 18px rgba(0, 122, 204, 0.4); }
+.skill-item.brand-vsstudio:hover { border-color: #5C2D91; box-shadow: 0 6px 18px rgba(92, 45, 145, 0.4); }
+.skill-item.brand-github:hover   { border-color: #9B51E0; box-shadow: 0 6px 18px rgba(155, 81, 224, 0.4); }
+.skill-item.brand-figma:hover    { border-color: #F24E1E; box-shadow: 0 6px 18px rgba(242, 78, 30, 0.4); }
+.skill-item.brand-photoshop:hover{ border-color: #31A8FF; box-shadow: 0 6px 18px rgba(49, 168, 255, 0.4); }
+.skill-item.brand-aws:hover      { border-color: #FF9900; box-shadow: 0 6px 18px rgba(255, 153, 0, 0.4); }
+.skill-item.brand-trello:hover   { border-color: #0052CC; box-shadow: 0 6px 18px rgba(0, 82, 204, 0.4); }
+
+.skill-item.brand-aseprite:hover { border-color: #A575DC; box-shadow: 0 6px 18px rgba(165, 117, 220, 0.4); }
+.skill-item.brand-shader:hover   { border-color: #00D2FF; box-shadow: 0 6px 18px rgba(0, 210, 255, 0.4); }
+.skill-item.brand-vfx:hover      { border-color: #FF007F; box-shadow: 0 6px 18px rgba(255, 0, 127, 0.4); }
+.skill-item.brand-postproc:hover { border-color: #00FFAA; box-shadow: 0 6px 18px rgba(0, 255, 170, 0.4); }
+
+/* Methodologies Tag Pills */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: rgba(214, 109, 117, 0.12);
+    border: 1px solid rgba(214, 109, 117, 0.35);
+    color: var(--text-white);
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.skill-tag:hover {
+    background: var(--accent-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(214, 109, 117, 0.3);
+}
